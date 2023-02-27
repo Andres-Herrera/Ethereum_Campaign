@@ -24,14 +24,14 @@ class RequestNew extends Component {
     onSubmit = async event => {
         event.preventDefault();
 
-        const campaign = Campaign(this.props.address); // this is to access a copy of the contract of the current campaing
+        const campaign = Campaign(this.props.address); 
         const { description, value, recipient } = this.state;
 
         this.setState({ loading: true, errorMessage: '' });
 
 
         try{
-            const accounts = await web3.eth.getAccounts(); // remember that value needs to be in wei
+            const accounts = await web3.eth.getAccounts(); 
             await campaign.methods.createRequest(description, web3.utils.toWei(value, 'ether'), recipient).send({ from: accounts[0]});
 
             Router.pushRoute(`/campaigns/${this.props.address}/requests`); 

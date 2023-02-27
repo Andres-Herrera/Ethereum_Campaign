@@ -2,8 +2,7 @@ const { createServer} = require('http');
 const next = require('next');
 
 const app = next({ 
-    dev: process.env.NODE_ENV !== 'production' // specifies if we are running in production or not.  when is production, next will
-    // behave differently
+    dev: process.env.NODE_ENV !== 'production' 
 });
 
 const routes = require('./routes');

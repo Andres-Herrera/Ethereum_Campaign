@@ -15,8 +15,7 @@ class CampaignShow extends Component {
         const summary = await campaign.methods.getSummary().call();
 
 
-        return{ // since calling the getSummary function returns an object with no so descriptive labels, we are 'relableling' them here
-            // Note we are also returning the address as we need it when we export this component
+        return{ 
             address: props.query.address,
             minimumContribution: summary[0],
             balance: summary[1],
@@ -33,7 +32,7 @@ class CampaignShow extends Component {
             minimumContribution,
             requestCount,
             approversCount
-        } = this.props // getting what we need from the props to be able to use them in this function
+        } = this.props 
 
         const items = [
             {
@@ -41,8 +40,7 @@ class CampaignShow extends Component {
                 meta:'Address of Manager',
                 description: 'The managager created this camapaign and can create requests to withdraw money',
                 style: { overflowWrap: 'break-word' }
-            }, // style allows us to modify how the card is presented, here we are wrapping the text of the address, otherwise
-            // it would overflow the card and not look good
+            }, 
             {
                 header: minimumContribution,
                 meta: 'Minimum Contribution (wei)',
@@ -73,7 +71,7 @@ class CampaignShow extends Component {
             }
         ];
 
-        return <Card.Group items={items} />; // this makes used of the Semantic library.  Checks docs of Semantics
+        return <Card.Group items={items} />; 
     }
 
     render() {
@@ -107,11 +105,3 @@ class CampaignShow extends Component {
 }
 
 export default CampaignShow;
-
-// this will work in conjuction with the routes.js file.  This is a dynamic page that will be used to display the 
-// campaigns individually
-
-//When we added the <Link route={`/campaigns/${this.props.address}/requests`}> this forces us to go and update the routes.js file to 
-//update the new link
-
-//We need to put the button inside a Grid.Colum otherwise the button will look off the margin

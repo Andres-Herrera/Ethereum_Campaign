@@ -54,9 +54,8 @@ class RequestRow extends Component {
 
     render() {
         const { Row, Cell } = Table;
-        const { id, request, approversCount } = this.props; // this allows us to save some typing, without this, in eac cell bellow I would need to type
-        // <Cell>{this.props.request.<something}</Cell>
-        const readyToFinalize = request.approvalCount >= approversCount / 2; // checks if the request is ready to be finalized
+        const { id, request, approversCount } = this.props; 
+        const readyToFinalize = request.approvalCount >= approversCount / 2; 
 
         return (
             
